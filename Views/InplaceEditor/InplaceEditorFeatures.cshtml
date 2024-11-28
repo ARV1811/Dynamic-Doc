@@ -1,0 +1,41 @@
+@{
+    ViewBag.Title = "InplaceEditor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Syncfusion.EJ2.InPlaceEditor;
+<h2>InplaceEditor Features:</h2>
+<br/>
+<li> Inplace Editor Type - Default</li>
+<li> Inplace Editor Mode - Inline</li>
+<li> Theme - Fluent</li>
+<br/>
+<div style="width:94rem;height:10rem">
+<div id = "ControlRegion">
+              <div id="target" class="col-lg-12 control-section">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-lg-6 col-md-6">
+                <span style="font-size: 14px; ">Best employee of this year is: </span>
+                @Html.EJS().InPlaceEditor("default").Value(ViewBag.value).Mode(RenderMode.Inline).ActionOnBlur(ActionBlur.Submit).SubmitOnEnter(true).Model(ViewBag.data).Render()
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .content-wrapper {
+        width: 90%;
+        margin: 0 auto;
+        min-width: 185px;
+    }
+        .content-wrapper div.row {
+            padding: 15px 0px;
+        }
+		#ControlRegion{
+            height:9rem;
+        }
+		.col-md-6 {
+        margin-left: 23rem;
+    }
+</style>
+</div>
+</div>

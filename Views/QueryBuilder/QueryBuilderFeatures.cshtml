@@ -1,0 +1,27 @@
+@{
+    ViewBag.Title = "QueryBuilder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>QueryBuilder Features:</h2>
+<br/>
+<li> Default</li>
+<li> Theme - Fluent</li>
+<br/>
+<div id = "ControlRegion">
+<div id="target" class="col-lg-12 control-section">
+    <div class="content-wrapper">
+        <div class="row">
+            @Html.EJS().QueryBuilder("querybuilder").Width("850px").Columns(col =>
+            {
+            col.Field("EmployeeID").Label("Employee ID").Type("number").Add();
+            col.Field("FirstName").Label("First Name").Type("string").Add();
+            col.Field("TitleOfCourtesy").Label("Title Of Courtesy").Type("boolean").Values(new List<string> { "Mr.", "Mrs." }).Add();
+            col.Field("Title").Label("Title").Type("string").Add();
+            col.Field("HireDate").Label("Hire Date").Type("date").Format("dd/MM/yyyy").Add();
+            col.Field("Country").Label("Country").Type("string").Add();
+            col.Field("City").Label("City").Type("string").Add();
+            }).Rule(ViewBag.importRules).MaxGroupCount(5).Render()
+        </div>
+    </div>
+</div>
+</div>
